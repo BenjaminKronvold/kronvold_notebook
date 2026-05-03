@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kronvold</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -293,12 +291,12 @@
 <body>
 
 <!-- ══ SETUP SCREEN ══ -->
-<div id="setup-screen" style="display:none">
+<div id="setup-screen" style="display: none;">
   <div class="setup-box">
     <div class="setup-title">Kronvold<span>.</span></div>
     <div class="setup-sub">Your personal system. First time — enter your GitHub token to enable auto-save to the web.</div>
     <div class="setup-label">GitHub Personal Access Token</div>
-    <input class="setup-input" id="setup-token" type="password" placeholder="ghp_xxxxxxxxxxxx" />
+    <input class="setup-input" id="setup-token" type="password" placeholder="ghp_xxxxxxxxxxxx">
     <div class="setup-note">Token is stored locally in your browser only. It is never sent anywhere except directly to GitHub.</div>
     <button class="setup-btn" onclick="saveSetup()">Activate Kronvold</button>
   </div>
@@ -309,24 +307,24 @@
   <div class="header-top">
     <div class="logo">Kronvold<span>.</span></div>
     <div style="display:flex;gap:8px;align-items:center">
-      <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()">↑ Save to GitHub</button>
+      <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()" disabled="">↑ Saving...</button>
     </div>
   </div>
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('ark',this)">ARK</button>
+    <button class="tab-btn" onclick="switchTab('ark',this)">ARK</button>
     <button class="tab-btn" onclick="switchTab('habits',this)">Habits</button>
     <button class="tab-btn" onclick="switchTab('workout',this)">Workout</button>
     <button class="tab-btn" onclick="switchTab('diet',this)">Diet</button>
     <button class="tab-btn" onclick="switchTab('progress',this)">Progress</button>
     <button class="tab-btn" onclick="switchTab('budget',this)">Budget</button>
-    <button class="tab-btn" onclick="switchTab('reflection',this)">Reflection</button>
+    <button class="tab-btn active" onclick="switchTab('reflection',this)">Reflection</button>
     <button class="tab-btn" onclick="switchTab('finance',this)">Finance</button>
   </div>
 </header>
 <div id="sync-status" class="sync-status"></div>
 
 <!-- ══════════ ARK TAB ══════════ -->
-<div class="tab-content active" id="tab-ark">
+<div class="tab-content" id="tab-ark">
 <main>
   <div class="ark-hero">
     <div class="ark-title">My Calling</div>
@@ -336,7 +334,7 @@
 
   <div class="ark-why" id="ark-mission-box">
     <div class="ark-why-label">Mission</div>
-    <div class="ark-why-text" id="ark-mission-text">Støt familien og bliv finansielt fri gennem hårdt arbejde i finanssektoren og netværk gennem kirken. Jeg kan ikke stole på en brudt verden — kun på Gud. Dette er min vej: at frigøre min slægts lænker.</div>
+    <div class="ark-why-text" id="ark-mission-text"></div>
     <button class="ark-edit-btn" onclick="toggleArkEdit('mission')">Edit</button>
     <textarea class="ark-textarea" id="ark-mission-edit" style="display:none" rows="4"></textarea>
     <button class="ark-edit-btn" id="ark-mission-save" style="display:none;color:var(--accent);border-color:var(--accent-dim)" onclick="saveArkField('mission')">Save</button>
@@ -344,7 +342,7 @@
 
   <div class="ark-why" id="ark-why-box">
     <div class="ark-why-label">Why</div>
-    <div class="ark-why-text" id="ark-why-text">Min far er blevet doven og berettiget. Min mor bærer for meget. Verden fortalte mig at jeg aldrig ville klare det — men jeg vil ikke kun klare det, jeg vil løfte dem der troede på mig med mig op. Også min far.</div>
+    <div class="ark-why-text" id="ark-why-text"></div>
     <button class="ark-edit-btn" onclick="toggleArkEdit('why')">Edit</button>
     <textarea class="ark-textarea" id="ark-why-edit" style="display:none" rows="4"></textarea>
     <button class="ark-edit-btn" id="ark-why-save" style="display:none;color:var(--accent);border-color:var(--accent-dim)" onclick="saveArkField('why')">Save</button>
@@ -372,16 +370,16 @@
       <div class="streak-label">day streak</div>
     </div>
     <div style="text-align:right">
-      <div class="habit-date" id="habit-date-label"></div>
+      <div class="habit-date" id="habit-date-label">2026-05-03</div>
       <button class="action-btn" onclick="resetHabitsToday()">Reset day</button>
     </div>
   </div>
 
-  <div class="streak-bar" id="streak-bar"></div>
+  <div class="streak-bar" id="streak-bar"><div class="streak-pip" title="2026-04-27">M</div><div class="streak-pip" title="2026-04-28">T</div><div class="streak-pip" title="2026-04-29">W</div><div class="streak-pip" title="2026-04-30">T</div><div class="streak-pip" title="2026-05-01">F</div><div class="streak-pip" title="2026-05-02">S</div><div class="streak-pip today" title="2026-05-03">S</div></div>
 
   <div class="panel" style="padding:14px">
     <div class="panel-title">Daily Habits</div>
-    <div id="habits-list"></div>
+    <div id="habits-list"><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">4am wake up</div><div class="habit-time">04:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Run to gym</div><div class="habit-time">04:15</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">5am training</div><div class="habit-time">05:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Prayer / Bible</div><div class="habit-time">06:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Meal prep / clean eating</div><div class="habit-time">Daglig</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Study / work</div><div class="habit-time">06:30</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Sleep by 19:00</div><div class="habit-time">19:00</div></div></div>
   </div>
 </main>
 </div>
@@ -407,7 +405,7 @@
       <div class="week-lbl">of 4 weeks</div>
     </div>
   </div>
-  <div class="week-pips" id="week-pips"></div>
+  <div class="week-pips" id="week-pips"><div class="wpip curr"></div><div class="wpip"></div><div class="wpip"></div><div class="wpip"></div></div>
 
   <div class="tog-row">
     <button class="tog active" onclick="showWDay('mon',this)">Mon</button>
@@ -604,27 +602,27 @@
     <div class="log-form" id="log-form">
       <div class="log-input-wrap">
         <div class="log-label">Weight (kg)</div>
-        <input class="log-input" id="log-weight" type="number" step="0.1" placeholder="68.7" />
+        <input class="log-input" id="log-weight" type="number" step="0.1" placeholder="68.7">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Fatprocent (%)</div>
-        <input class="log-input" id="log-bf" type="number" step="0.1" placeholder="20" />
+        <input class="log-input" id="log-bf" type="number" step="0.1" placeholder="20">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Deadlift (kg)</div>
-        <input class="log-input" id="log-dl" type="number" step="1" placeholder="100" />
+        <input class="log-input" id="log-dl" type="number" step="1" placeholder="100">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Squat (kg)</div>
-        <input class="log-input" id="log-sq" type="number" step="1" placeholder="80" />
+        <input class="log-input" id="log-sq" type="number" step="1" placeholder="80">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Pullups (#)</div>
-        <input class="log-input" id="log-pu" type="number" step="1" placeholder="0" />
+        <input class="log-input" id="log-pu" type="number" step="1" placeholder="0">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Bench press (kg)</div>
-        <input class="log-input" id="log-bp" type="number" step="1" placeholder="60" />
+        <input class="log-input" id="log-bp" type="number" step="1" placeholder="60">
       </div>
       <button class="log-btn" onclick="saveProgressLog()">Save log</button>
     </div>
@@ -652,7 +650,7 @@
     </div>
     <div class="budget-total-row">
       <span class="s-label">Monthly budget (DKK)</span>
-      <input class="budget-total-input" id="budget-total-input" type="number" step="100" placeholder="5000" oninput="updateBudgetTotal(this.value)" />
+      <input class="budget-total-input" id="budget-total-input" type="number" step="100" placeholder="5000" oninput="updateBudgetTotal(this.value)">
       <button class="lock-btn" id="budget-lock-btn" onclick="toggleBudgetLock()">🔓 Unlock</button>
     </div>
     <div class="budget-bar-wrap"><div class="budget-bar-fill" id="budget-bar" style="width:0%"></div></div>
@@ -671,7 +669,7 @@
         <option value="Education">Education</option>
         <option value="Other">Other</option>
       </select>
-      <input class="budget-num-input" id="exp-amount" type="number" placeholder="kr" />
+      <input class="budget-num-input" id="exp-amount" type="number" placeholder="kr">
       <button class="budget-add-btn" onclick="addExpense()">+ Add</button>
     </div>
     <div id="expense-list"><div class="log-empty">No expenses this month.</div></div>
@@ -691,9 +689,9 @@
 </div>
 
 <!-- ══════════ REFLECTION TAB ══════════ -->
-<div class="tab-content" id="tab-reflection">
+<div class="tab-content active" id="tab-reflection">
 <main>
-  <div class="refl-week" id="refl-week-label"></div>
+  <div class="refl-week" id="refl-week-label">Uge 18 · 2026-05-03</div>
 
   <div class="panel">
     <div class="refl-field">
@@ -712,7 +710,10 @@
   </div>
 
   <div class="sec-label">Past reflections</div>
-  <div id="reflections-list"><div class="log-empty">No reflections yet.</div></div>
+  <div id="reflections-list"><div class="refl-past"><div class="refl-past-date">Uge 18 · 2026-05-03</div>
+      <div class="refl-past-section">Hvad gik godt</div><div class="refl-past-text">tesst</div>
+      <div class="refl-past-section">Hvad blev misset</div><div class="refl-past-text">tesst</div>
+      <div class="refl-past-section">Næste uge</div><div class="refl-past-text">tesst</div></div></div>
 </main>
 </div>
 
@@ -751,18 +752,18 @@
   <div class="panel">
     <div class="panel-title">Income &amp; Savings</div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Monthly salary (DKK)</span><input class="fin-input" id="sl-monthlySalary" type="number" min="5000" max="500000" step="1000" placeholder="40000" oninput="updateFinance('monthlySalary',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Monthly salary (DKK)</span><input class="fin-input" id="sl-monthlySalary" type="number" min="5000" max="500000" step="1000" placeholder="40000" oninput="updateFinance('monthlySalary',this.value)"></div>
       <div class="s-sub" id="sub-monthlySalary"></div>
     </div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Savings rate (%)</span><input class="fin-input" id="sl-savingsRate" type="number" min="1" max="95" step="1" placeholder="50" oninput="updateFinance('savingsRate',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Savings rate (%)</span><input class="fin-input" id="sl-savingsRate" type="number" min="1" max="95" step="1" placeholder="50" oninput="updateFinance('savingsRate',this.value)"></div>
       <div class="s-sub" id="sub-savingsRate"></div>
     </div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Annual return (%)</span><input class="fin-input" id="sl-hysa" type="number" min="0" max="20" step="0.1" placeholder="3.5" oninput="updateFinance('hysa',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Annual return (%)</span><input class="fin-input" id="sl-hysa" type="number" min="0" max="20" step="0.1" placeholder="3.5" oninput="updateFinance('hysa',this.value)"></div>
     </div>
     <div class="fin-input-group" style="margin-bottom:0">
-      <div class="fin-input-row"><span class="s-label">Retire in X years</span><input class="fin-input" id="sl-retireYear" type="number" min="1" max="40" step="1" placeholder="25" oninput="updateFinance('retireYear',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Retire in X years</span><input class="fin-input" id="sl-retireYear" type="number" min="1" max="40" step="1" placeholder="25" oninput="updateFinance('retireYear',this.value)"></div>
     </div>
   </div>
 
@@ -770,10 +771,10 @@
     <div class="panel-title">Property Settings</div>
     <div style="font-size:11px;color:var(--green);margin-bottom:12px" id="property-hint"></div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Property price (DKK)</span><input class="fin-input" id="sl-propertyPrice" type="number" min="100000" max="20000000" step="100000" placeholder="2500000" oninput="updateFinance('propertyPrice',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Property price (DKK)</span><input class="fin-input" id="sl-propertyPrice" type="number" min="100000" max="20000000" step="100000" placeholder="2500000" oninput="updateFinance('propertyPrice',this.value)"></div>
     </div>
     <div class="fin-input-group" style="margin-bottom:0">
-      <div class="fin-input-row"><span class="s-label">Rental yield after expenses (%)</span><input class="fin-input" id="sl-rentalYield" type="number" min="0" max="20" step="0.1" placeholder="5" oninput="updateFinance('rentalYield',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Rental yield after expenses (%)</span><input class="fin-input" id="sl-rentalYield" type="number" min="0" max="20" step="0.1" placeholder="5" oninput="updateFinance('rentalYield',this.value)"></div>
       <div class="s-sub" id="sub-rentalYield"></div>
     </div>
   </div>
@@ -814,108 +815,47 @@ const GITHUB_BRANCH = 'main';
 
 // ══ STATE ══
 const appData = {
-  ark: { mission: '', why: '' },
-  habits: {},
-  progress: [],
-  budget: { expenses: [], limits: { 'Food':2200,'Transport':600,'Subscriptions':300,'Church / Give':500,'Clothing':400,'Education':500,'Other':500 } },
-  reflections: [],
-  finance: { monthlySalary:40000, savingsRate:50, hysa:3.5, rentalYield:5, propertyPrice:2500000, retireYear:25 },
-  blockStart: null,
-  checkinDone: false
-};
-
-function load() {
-  // Data is baked into this file by GitHub sync — appData already has latest values from GitHub
-  // Also merge any local changes that happened since last sync
-  const saved = localStorage.getItem('kv_data');
-  if (saved) {
-    try {
-      const local = JSON.parse(saved);
-      // Merge: local habits/progress/budget/reflections take priority (device-specific actions)
-      // GitHub-baked appData has the authoritative workout/diet/ark/finance structure
-      if (local.habits) appData.habits = local.habits;
-      if (local.progress && local.progress.length > (appData.progress||[]).length) appData.progress = local.progress;
-      if (local.budget && local.budget.expenses && local.budget.expenses.length > 0) {
-        appData.budget.expenses = local.budget.expenses;
-        if (local.budget.total) appData.budget.total = local.budget.total;
-        if (local.budget.locked !== undefined) appData.budget.locked = local.budget.locked;
-        if (local.budget.limits) Object.assign(appData.budget, { limits: local.budget.limits });
-      }
-      if (local.reflections && local.reflections.length > (appData.reflections||[]).length) appData.reflections = local.reflections;
-      if (local.finance) Object.assign(appData.finance, local.finance);
-      if (local.blockStart) appData.blockStart = local.blockStart;
-      if (local.checkinDone !== undefined) appData.checkinDone = local.checkinDone;
-      if (local.ark && local.ark.mission) appData.ark.mission = local.ark.mission;
-      if (local.ark && local.ark.why) appData.ark.why = local.ark.why;
-    } catch(e) {}
-  }
-  if (!appData.blockStart) { appData.blockStart = Date.now(); }
-  if (!appData.finance) appData.finance = { monthlySalary:40000, savingsRate:50, hysa:3.5, rentalYield:5, propertyPrice:2500000, retireYear:25 };
-  if (!appData.budget) appData.budget = { expenses:[], limits:{ Food:2200, Transport:600, Subscriptions:300, Church:500, Clothing:400, Education:500, Other:500 }, total:5000, locked:false };
-  save();
-}
-
-function save() {
-  localStorage.setItem('kv_data', JSON.stringify(appData));
-}
-
-// ══ SETUP / GITHUB TOKEN ══
-function checkSetup() {
-  const token = localStorage.getItem('kv_github_token');
-  if (!token) {
-    document.getElementById('setup-screen').style.display = 'flex';
-  }
-}
-function saveSetup() {
-  const token = document.getElementById('setup-token').value.trim();
-  if (!token) { alert('Please enter your GitHub token'); return; }
-  localStorage.setItem('kv_github_token', token);
-  document.getElementById('setup-screen').style.display = 'none';
-  setStatus('Token saved locally ✓', 'ok');
-}
-
-// ══ GITHUB SYNC ══
-async function syncToGitHub() {
-  const token = localStorage.getItem('kv_github_token');
-  if (!token) { document.getElementById('setup-screen').style.display = 'flex'; return; }
-  const btn = document.getElementById('sync-btn');
-  btn.disabled = true; btn.textContent = '↑ Saving...';
-  setStatus('', '');
-  try {
-    // Get current file SHA
-    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`, {
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    const getJson = await getRes.json();
-    const sha = getJson.sha;
-
-    // Get current HTML and inject data
-    const currentHtml = document.documentElement.outerHTML;
-    const injected = injectDataIntoHtml(currentHtml);
-    const encoded = btoa(unescape(encodeURIComponent(injected)));
-
-    // Commit
-    const putRes = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
-      method: 'PUT',
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `Kronvold update ${new Date().toISOString().slice(0,16)}`, content: encoded, sha: sha, branch: GITHUB_BRANCH })
-    });
-    if (putRes.ok) {
-      setStatus('Saved to GitHub ✓ — Netlify redeploys in ~30s', 'ok');
-    } else {
-      const err = await putRes.json();
-      setStatus('Error: ' + (err.message || 'unknown'), 'err');
+  "ark": {
+    "mission": "",
+    "why": ""
+  },
+  "habits": {
+    "2026-05-03": {}
+  },
+  "progress": [],
+  "budget": {
+    "expenses": [],
+    "limits": {
+      "Food": 2200,
+      "Transport": 600,
+      "Subscriptions": 300,
+      "Church / Give": 500,
+      "Clothing": 400,
+      "Education": 500,
+      "Other": 500
     }
-  } catch(e) {
-    setStatus('Network error. Try again.', 'err');
-  }
-  btn.disabled = false; btn.textContent = '↑ Save to GitHub';
-}
-
-function injectDataIntoHtml(html) {
-  // Use start/end markers to reliably replace the appData block
-  const START = '// ══ STATE ══';
-  const END = '// ══ END STATE ══';
+  },
+  "reflections": [
+    {
+      "date": "2026-05-03",
+      "week": 18,
+      "good": "tesst",
+      "missed": "tesst",
+      "carry": "tesst"
+    }
+  ],
+  "finance": {
+    "monthlySalary": 40000,
+    "savingsRate": 50,
+    "hysa": 3.5,
+    "rentalYield": 5,
+    "propertyPrice": 2500000,
+    "retireYear": 25
+  },
+  "blockStart": 1777830162021,
+  "checkinDone": false
+};
+// ══ END STATE ══';
   const newBlock = START + '\nconst appData = ' + JSON.stringify(appData, null, 2) + ';\n' + END;
   const startIdx = html.indexOf(START);
   const endIdx = html.indexOf(END);
@@ -1452,6 +1392,7 @@ initBudget();
 renderFinance();
 initFinanceInputs();
 </script>
-<div class="notif-toast" id="notif-toast"></div>
-</body>
-</html>
+<div class="notif-toast show" id="notif-toast">Reflection saved — syncing to GitHub...</div>
+
+
+</body></html>
