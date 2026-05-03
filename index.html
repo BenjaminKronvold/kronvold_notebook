@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kronvold</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -298,7 +296,7 @@
     <div class="setup-title">Kronvold<span>.</span></div>
     <div class="setup-sub">Your personal system. First time — enter your GitHub token to enable auto-save to the web.</div>
     <div class="setup-label">GitHub Personal Access Token</div>
-    <input class="setup-input" id="setup-token" type="password" placeholder="ghp_xxxxxxxxxxxx" />
+    <input class="setup-input" id="setup-token" type="password" placeholder="ghp_xxxxxxxxxxxx">
     <div class="setup-note">Token is stored locally in your browser only. It is never sent anywhere except directly to GitHub.</div>
     <button class="setup-btn" onclick="saveSetup()">Activate Kronvold</button>
   </div>
@@ -309,24 +307,24 @@
   <div class="header-top">
     <div class="logo">Kronvold<span>.</span></div>
     <div style="display:flex;gap:8px;align-items:center">
-      <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()">↑ Save to GitHub</button>
+      <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()" disabled="">↑ Saving...</button>
     </div>
   </div>
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('ark',this)">ARK</button>
+    <button class="tab-btn" onclick="switchTab('ark',this)">ARK</button>
     <button class="tab-btn" onclick="switchTab('habits',this)">Habits</button>
     <button class="tab-btn" onclick="switchTab('workout',this)">Workout</button>
     <button class="tab-btn" onclick="switchTab('diet',this)">Diet</button>
     <button class="tab-btn" onclick="switchTab('progress',this)">Progress</button>
     <button class="tab-btn" onclick="switchTab('budget',this)">Budget</button>
-    <button class="tab-btn" onclick="switchTab('reflection',this)">Reflection</button>
+    <button class="tab-btn active" onclick="switchTab('reflection',this)">Reflection</button>
     <button class="tab-btn" onclick="switchTab('finance',this)">Finance</button>
   </div>
 </header>
 <div id="sync-status" class="sync-status"></div>
 
 <!-- ══════════ ARK TAB ══════════ -->
-<div class="tab-content active" id="tab-ark">
+<div class="tab-content" id="tab-ark">
 <main>
   <div class="ark-hero">
     <div class="ark-title">My Calling</div>
@@ -336,7 +334,7 @@
 
   <div class="ark-why" id="ark-mission-box">
     <div class="ark-why-label">Mission</div>
-    <div class="ark-why-text" id="ark-mission-text">Støt familien og bliv finansielt fri gennem hårdt arbejde i finanssektoren og netværk gennem kirken. Jeg kan ikke stole på en brudt verden — kun på Gud. Dette er min vej: at frigøre min slægts lænker.</div>
+    <div class="ark-why-text" id="ark-mission-text"></div>
     <button class="ark-edit-btn" onclick="toggleArkEdit('mission')">Edit</button>
     <textarea class="ark-textarea" id="ark-mission-edit" style="display:none" rows="4"></textarea>
     <button class="ark-edit-btn" id="ark-mission-save" style="display:none;color:var(--accent);border-color:var(--accent-dim)" onclick="saveArkField('mission')">Save</button>
@@ -344,7 +342,7 @@
 
   <div class="ark-why" id="ark-why-box">
     <div class="ark-why-label">Why</div>
-    <div class="ark-why-text" id="ark-why-text">Min far er blevet doven og berettiget. Min mor bærer for meget. Verden fortalte mig at jeg aldrig ville klare det — men jeg vil ikke kun klare det, jeg vil løfte dem der troede på mig med mig op. Også min far.</div>
+    <div class="ark-why-text" id="ark-why-text"></div>
     <button class="ark-edit-btn" onclick="toggleArkEdit('why')">Edit</button>
     <textarea class="ark-textarea" id="ark-why-edit" style="display:none" rows="4"></textarea>
     <button class="ark-edit-btn" id="ark-why-save" style="display:none;color:var(--accent);border-color:var(--accent-dim)" onclick="saveArkField('why')">Save</button>
@@ -372,16 +370,16 @@
       <div class="streak-label">day streak</div>
     </div>
     <div style="text-align:right">
-      <div class="habit-date" id="habit-date-label"></div>
+      <div class="habit-date" id="habit-date-label">2026-05-03</div>
       <button class="action-btn" onclick="resetHabitsToday()">Reset day</button>
     </div>
   </div>
 
-  <div class="streak-bar" id="streak-bar"></div>
+  <div class="streak-bar" id="streak-bar"><div class="streak-pip" title="2026-04-27">M</div><div class="streak-pip" title="2026-04-28">T</div><div class="streak-pip" title="2026-04-29">W</div><div class="streak-pip" title="2026-04-30">T</div><div class="streak-pip" title="2026-05-01">F</div><div class="streak-pip" title="2026-05-02">S</div><div class="streak-pip today" title="2026-05-03">S</div></div>
 
   <div class="panel" style="padding:14px">
     <div class="panel-title">Daily Habits</div>
-    <div id="habits-list"></div>
+    <div id="habits-list"><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">4am wake up</div><div class="habit-time">04:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Run to gym</div><div class="habit-time">04:15</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">5am training</div><div class="habit-time">05:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Prayer / Bible</div><div class="habit-time">06:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Meal prep / clean eating</div><div class="habit-time">Daglig</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Study / work</div><div class="habit-time">06:30</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Sleep by 19:00</div><div class="habit-time">19:00</div></div></div>
   </div>
 </main>
 </div>
@@ -407,7 +405,7 @@
       <div class="week-lbl">of 4 weeks</div>
     </div>
   </div>
-  <div class="week-pips" id="week-pips"></div>
+  <div class="week-pips" id="week-pips"><div class="wpip curr"></div><div class="wpip"></div><div class="wpip"></div><div class="wpip"></div></div>
 
   <div class="tog-row">
     <button class="tog active" onclick="showWDay('mon',this)">Mon</button>
@@ -604,27 +602,27 @@
     <div class="log-form" id="log-form">
       <div class="log-input-wrap">
         <div class="log-label">Weight (kg)</div>
-        <input class="log-input" id="log-weight" type="number" step="0.1" placeholder="68.7" />
+        <input class="log-input" id="log-weight" type="number" step="0.1" placeholder="68.7">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Fatprocent (%)</div>
-        <input class="log-input" id="log-bf" type="number" step="0.1" placeholder="20" />
+        <input class="log-input" id="log-bf" type="number" step="0.1" placeholder="20">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Deadlift (kg)</div>
-        <input class="log-input" id="log-dl" type="number" step="1" placeholder="100" />
+        <input class="log-input" id="log-dl" type="number" step="1" placeholder="100">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Squat (kg)</div>
-        <input class="log-input" id="log-sq" type="number" step="1" placeholder="80" />
+        <input class="log-input" id="log-sq" type="number" step="1" placeholder="80">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Pullups (#)</div>
-        <input class="log-input" id="log-pu" type="number" step="1" placeholder="0" />
+        <input class="log-input" id="log-pu" type="number" step="1" placeholder="0">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Bench press (kg)</div>
-        <input class="log-input" id="log-bp" type="number" step="1" placeholder="60" />
+        <input class="log-input" id="log-bp" type="number" step="1" placeholder="60">
       </div>
       <button class="log-btn" onclick="saveProgressLog()">Save log</button>
     </div>
@@ -642,21 +640,21 @@
 <main>
   <div class="cards">
     <div class="card"><div class="card-label">Spent this month</div><div class="card-value cv-accent" id="budget-spent-total">0 kr</div></div>
-    <div class="card"><div class="card-label">Budget remaining</div><div class="card-value cv-green" id="budget-left">0 kr</div></div>
+    <div class="card"><div class="card-label">Budget remaining</div><div class="card-value cv-green" id="budget-left">5.000 kr</div></div>
   </div>
 
   <div class="panel">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <div class="budget-month" id="budget-month-label"></div>
-      <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="budget-pct-label"></div>
+      <div class="budget-month" id="budget-month-label">May 2026</div>
+      <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="budget-pct-label">0% of 5.000 kr</div>
     </div>
     <div class="budget-total-row">
       <span class="s-label">Monthly budget (DKK)</span>
-      <input class="budget-total-input" id="budget-total-input" type="number" step="100" placeholder="5000" oninput="updateBudgetTotal(this.value)" />
+      <input class="budget-total-input" id="budget-total-input" type="number" step="100" placeholder="5000" oninput="updateBudgetTotal(this.value)">
       <button class="lock-btn" id="budget-lock-btn" onclick="toggleBudgetLock()">🔓 Unlock</button>
     </div>
     <div class="budget-bar-wrap"><div class="budget-bar-fill" id="budget-bar" style="width:0%"></div></div>
-    <div id="budget-cats"></div>
+    <div id="budget-cats"><div class="budget-cat"><div class="budget-cat-name">Food</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 2.200 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Transport</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 600 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Subscriptions</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 300 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Church / Give</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Clothing</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 400 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Education</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Other</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div></div>
   </div>
 
   <div class="sec-label">Add expense</div>
@@ -671,7 +669,7 @@
         <option value="Education">Education</option>
         <option value="Other">Other</option>
       </select>
-      <input class="budget-num-input" id="exp-amount" type="number" placeholder="kr" />
+      <input class="budget-num-input" id="exp-amount" type="number" placeholder="kr">
       <button class="budget-add-btn" onclick="addExpense()">+ Add</button>
     </div>
     <div id="expense-list"><div class="log-empty">No expenses this month.</div></div>
@@ -691,9 +689,9 @@
 </div>
 
 <!-- ══════════ REFLECTION TAB ══════════ -->
-<div class="tab-content" id="tab-reflection">
+<div class="tab-content active" id="tab-reflection">
 <main>
-  <div class="refl-week" id="refl-week-label"></div>
+  <div class="refl-week" id="refl-week-label">Uge 18 · 2026-05-03</div>
 
   <div class="panel">
     <div class="refl-field">
@@ -712,7 +710,10 @@
   </div>
 
   <div class="sec-label">Past reflections</div>
-  <div id="reflections-list"><div class="log-empty">No reflections yet.</div></div>
+  <div id="reflections-list"><div class="refl-past"><div class="refl-past-date">Uge 18 · 2026-05-03</div>
+      <div class="refl-past-section">Hvad gik godt</div><div class="refl-past-text">tesst</div>
+      <div class="refl-past-section">Hvad blev misset</div><div class="refl-past-text">tesst</div>
+      <div class="refl-past-section">Næste uge</div><div class="refl-past-text">tesst</div></div></div>
 </main>
 </div>
 
@@ -720,18 +721,18 @@
 <div class="tab-content" id="tab-finance">
 <main>
   <div class="cards">
-    <div class="card"><div class="card-label">Retirement age</div><div class="card-value cv-accent" id="c-retire-age">—</div></div>
-    <div class="card"><div class="card-label">Savings at retirement</div><div class="card-value cv-accent" id="c-savings">—</div></div>
-    <div class="card"><div class="card-label">Properties</div><div class="card-value cv-green" id="c-properties">—</div></div>
-    <div class="card"><div class="card-label">Passive income/yr</div><div class="card-value cv-green" id="c-passive">—</div></div>
+    <div class="card"><div class="card-label">Retirement age</div><div class="card-value cv-accent" id="c-retire-age">45</div></div>
+    <div class="card"><div class="card-label">Savings at retirement</div><div class="card-value cv-accent" id="c-savings">1.14M kr</div></div>
+    <div class="card"><div class="card-label">Properties</div><div class="card-value cv-green" id="c-properties">4 units</div></div>
+    <div class="card"><div class="card-label">Passive income/yr</div><div class="card-value cv-green" id="c-passive">539.9K kr</div></div>
   </div>
 
   <div class="panel">
     <div class="panel-title">Savings trajectory</div>
-    <div id="chart-bars"></div>
+    <div id="chart-bars"><div class="bar-wrap" title="Age 21: 248.4K kr"><div class="bar" style="height: 7.90683px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 22: 505.5K kr"><div class="bar" style="height: 16.0904px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 23: 771.6K kr"><div class="bar" style="height: 24.5604px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 24: 1.05M kr"><div class="bar" style="height: 33.3268px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 25: 1.33M kr"><div class="bar" style="height: 42.4001px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 26: 1.63M kr"><div class="bar" style="height: 51.7909px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 27: 1.93M kr"><div class="bar" style="height: 61.5104px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 28: 2.25M kr"><div class="bar" style="height: 71.5701px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 29: 2.58M kr"><div class="bar" style="height: 81.9819px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 30: 451.6K kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 14.3742px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 31: 840.8K kr"><div class="bar" style="height: 26.763px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 32: 1.24M kr"><div class="bar" style="height: 39.5854px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 33: 1.66M kr"><div class="bar" style="height: 52.8566px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 34: 2.09M kr"><div class="bar" style="height: 66.5923px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 35: 2.54M kr"><div class="bar" style="height: 80.8087px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 36: 538.4K kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 17.1388px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 37: 1.06M kr"><div class="bar" style="height: 33.6033px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 38: 1.59M kr"><div class="bar" style="height: 50.644px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 39: 2.15M kr"><div class="bar" style="height: 68.2811px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 40: 2.72M kr"><div class="bar" style="height: 86.5355px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 41: 849.6K kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 27.0449px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 42: 1.50M kr"><div class="bar" style="height: 47.835px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 43: 2.18M kr"><div class="bar" style="height: 69.3527px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 44: 2.88M kr"><div class="bar" style="height: 91.6235px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Age 45: 1.14M kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 36.2899px; background: rgb(201, 168, 76);"></div></div><div class="bar-wrap" title="Age 46: 1.68M kr"><div class="bar" style="height: 53.4755px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 47: 2.24M kr"><div class="bar" style="height: 71.2627px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 48: 2.82M kr"><div class="bar" style="height: 89.6724px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 49: 953.2K kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 30.3425px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 50: 1.61M kr"><div class="bar" style="height: 51.2989px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 51: 2.29M kr"><div class="bar" style="height: 72.9888px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 52: 3.00M kr"><div class="bar" style="height: 95.4378px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 53: 1.27M kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 40.2886px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 54: 2.06M kr"><div class="bar" style="height: 65.5719px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 55: 2.88M kr"><div class="bar" style="height: 91.7402px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 56: 1.27M kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 40.4405px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 57: 2.19M kr"><div class="bar" style="height: 69.7081px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 58: 3.14M kr"><div class="bar" style="height: 100px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 59: 1.66M kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 52.9682px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Age 60: 2.72M kr"><div class="bar" style="height: 86.6532px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div></div>
     <div class="chart-labels">
       <span>Age 21</span>
-      <span style="color:var(--accent)" id="chart-retire-label">↑ Pension —</span>
+      <span style="color:var(--accent)" id="chart-retire-label">↑ Retire 45</span>
       <span>Age 60</span>
     </div>
     <div class="chart-legend">
@@ -741,51 +742,51 @@
     </div>
   </div>
 
-  <div class="timeline-section" id="timeline-section">
+  <div class="timeline-section" id="timeline-section" style="display: block;">
     <div class="panel">
       <div class="panel-title">Property purchase timeline</div>
-      <div class="timeline-list" id="timeline-list"></div>
+      <div class="timeline-list" id="timeline-list"><div class="tl-item"><div class="tl-badge">#1</div><div><span class="tl-label">Property #1</span><span class="tl-meta">Age 30 · Year 10</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#2</div><div><span class="tl-label">Property #2</span><span class="tl-meta">Age 36 · Year 16</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#3</div><div><span class="tl-label">Property #3</span><span class="tl-meta">Age 41 · Year 21</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#4</div><div><span class="tl-label">Property #4</span><span class="tl-meta">Age 45 · Year 25</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#5</div><div><span class="tl-label">Property #5</span><span class="tl-meta">Age 49 · Year 29</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#6</div><div><span class="tl-label">Property #6</span><span class="tl-meta">Age 53 · Year 33</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#7</div><div><span class="tl-label">Property #7</span><span class="tl-meta">Age 56 · Year 36</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#8</div><div><span class="tl-label">Property #8</span><span class="tl-meta">Age 59 · Year 39</span></div><div class="tl-income">+125.0K kr/år</div></div></div>
     </div>
   </div>
 
   <div class="panel">
     <div class="panel-title">Income &amp; Savings</div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Monthly salary (DKK)</span><input class="fin-input" id="sl-monthlySalary" type="number" min="5000" max="500000" step="1000" placeholder="40000" oninput="updateFinance('monthlySalary',this.value)" /></div>
-      <div class="s-sub" id="sub-monthlySalary"></div>
+      <div class="fin-input-row"><span class="s-label">Monthly salary (DKK)</span><input class="fin-input" id="sl-monthlySalary" type="number" min="5000" max="500000" step="1000" placeholder="40000" oninput="updateFinance('monthlySalary',this.value)"></div>
+      <div class="s-sub" id="sub-monthlySalary">Yearlig: 480.0K kr · Opsparet/år: 240.0K kr</div>
     </div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Savings rate (%)</span><input class="fin-input" id="sl-savingsRate" type="number" min="1" max="95" step="1" placeholder="50" oninput="updateFinance('savingsRate',this.value)" /></div>
-      <div class="s-sub" id="sub-savingsRate"></div>
+      <div class="fin-input-row"><span class="s-label">Savings rate (%)</span><input class="fin-input" id="sl-savingsRate" type="number" min="1" max="95" step="1" placeholder="50" oninput="updateFinance('savingsRate',this.value)"></div>
+      <div class="s-sub" id="sub-savingsRate">20.0K kr/mo into savings</div>
     </div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Annual return (%)</span><input class="fin-input" id="sl-hysa" type="number" min="0" max="20" step="0.1" placeholder="3.5" oninput="updateFinance('hysa',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Annual return (%)</span><input class="fin-input" id="sl-hysa" type="number" min="0" max="20" step="0.1" placeholder="3.5" oninput="updateFinance('hysa',this.value)"></div>
     </div>
     <div class="fin-input-group" style="margin-bottom:0">
-      <div class="fin-input-row"><span class="s-label">Retire in X years</span><input class="fin-input" id="sl-retireYear" type="number" min="1" max="40" step="1" placeholder="25" oninput="updateFinance('retireYear',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Retire in X years</span><input class="fin-input" id="sl-retireYear" type="number" min="1" max="40" step="1" placeholder="25" oninput="updateFinance('retireYear',this.value)"></div>
     </div>
   </div>
 
   <div class="panel">
     <div class="panel-title">Property Settings</div>
-    <div style="font-size:11px;color:var(--green);margin-bottom:12px" id="property-hint"></div>
+    <div style="font-size:11px;color:var(--green);margin-bottom:12px" id="property-hint">Auto-buys when savings hit 2.50M kr</div>
     <div class="fin-input-group">
-      <div class="fin-input-row"><span class="s-label">Property price (DKK)</span><input class="fin-input" id="sl-propertyPrice" type="number" min="100000" max="20000000" step="100000" placeholder="2500000" oninput="updateFinance('propertyPrice',this.value)" /></div>
+      <div class="fin-input-row"><span class="s-label">Property price (DKK)</span><input class="fin-input" id="sl-propertyPrice" type="number" min="100000" max="20000000" step="100000" placeholder="2500000" oninput="updateFinance('propertyPrice',this.value)"></div>
     </div>
     <div class="fin-input-group" style="margin-bottom:0">
-      <div class="fin-input-row"><span class="s-label">Rental yield after expenses (%)</span><input class="fin-input" id="sl-rentalYield" type="number" min="0" max="20" step="0.1" placeholder="5" oninput="updateFinance('rentalYield',this.value)" /></div>
-      <div class="s-sub" id="sub-rentalYield"></div>
+      <div class="fin-input-row"><span class="s-label">Rental yield after expenses (%)</span><input class="fin-input" id="sl-rentalYield" type="number" min="0" max="20" step="0.1" placeholder="5" oninput="updateFinance('rentalYield',this.value)"></div>
+      <div class="s-sub" id="sub-rentalYield">Each property earns 125.0K kr/yr</div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:0">
-    <div class="panel-title" id="breakdown-title">At retirement</div>
-    <div class="breakdown-row"><span class="bk-key">Cash savings</span><span class="bk-val" id="br-savings"></span></div>
-    <div class="breakdown-row"><span class="bk-key">Properties ejet</span><span class="bk-val" id="br-properties"></span></div>
-    <div class="breakdown-row"><span class="bk-key">Rental income</span><span class="bk-val cv-green" id="br-rental"></span></div>
-    <div class="breakdown-row"><span class="bk-key">HYSA interest</span><span class="bk-val cv-accent" id="br-hysa"></span></div>
-    <div class="breakdown-row"><span class="bk-key">Total passive/yr</span><span class="bk-val cv-green bk-bold" id="br-total"></span></div>
-    <div class="breakdown-row" style="border-bottom:none"><span class="bk-key">Monthly passive</span><span class="bk-val cv-green bk-bold" id="br-monthly"></span></div>
+    <div class="panel-title" id="breakdown-title">At retirement — Age 45</div>
+    <div class="breakdown-row"><span class="bk-key">Cash savings</span><span class="bk-val" id="br-savings">1.14M kr</span></div>
+    <div class="breakdown-row"><span class="bk-key">Properties ejet</span><span class="bk-val" id="br-properties">4 × 2.50M kr</span></div>
+    <div class="breakdown-row"><span class="bk-key">Rental income</span><span class="bk-val cv-green" id="br-rental">500.0K kr/år</span></div>
+    <div class="breakdown-row"><span class="bk-key">HYSA interest</span><span class="bk-val cv-accent" id="br-hysa">39.9K kr/år</span></div>
+    <div class="breakdown-row"><span class="bk-key">Total passive/yr</span><span class="bk-val cv-green bk-bold" id="br-total">539.9K kr</span></div>
+    <div class="breakdown-row" style="border-bottom:none"><span class="bk-key">Monthly passive</span><span class="bk-val cv-green bk-bold" id="br-monthly">45.0K kr/md</span></div>
   </div>
 </main>
 </div>
@@ -814,108 +815,49 @@ const GITHUB_BRANCH = 'main';
 
 // ══ STATE ══
 const appData = {
-  ark: { mission: '', why: '' },
-  habits: {},
-  progress: [],
-  budget: { expenses: [], limits: { 'Food':2200,'Transport':600,'Subscriptions':300,'Church / Give':500,'Clothing':400,'Education':500,'Other':500 } },
-  reflections: [],
-  finance: { monthlySalary:40000, savingsRate:50, hysa:3.5, rentalYield:5, propertyPrice:2500000, retireYear:25 },
-  blockStart: null,
-  checkinDone: false
-};
-
-function load() {
-  // Data is baked into this file by GitHub sync — appData already has latest values from GitHub
-  // Also merge any local changes that happened since last sync
-  const saved = localStorage.getItem('kv_data');
-  if (saved) {
-    try {
-      const local = JSON.parse(saved);
-      // Merge: local habits/progress/budget/reflections take priority (device-specific actions)
-      // GitHub-baked appData has the authoritative workout/diet/ark/finance structure
-      if (local.habits) appData.habits = local.habits;
-      if (local.progress && local.progress.length > (appData.progress||[]).length) appData.progress = local.progress;
-      if (local.budget && local.budget.expenses && local.budget.expenses.length > 0) {
-        appData.budget.expenses = local.budget.expenses;
-        if (local.budget.total) appData.budget.total = local.budget.total;
-        if (local.budget.locked !== undefined) appData.budget.locked = local.budget.locked;
-        if (local.budget.limits) Object.assign(appData.budget, { limits: local.budget.limits });
-      }
-      if (local.reflections && local.reflections.length > (appData.reflections||[]).length) appData.reflections = local.reflections;
-      if (local.finance) Object.assign(appData.finance, local.finance);
-      if (local.blockStart) appData.blockStart = local.blockStart;
-      if (local.checkinDone !== undefined) appData.checkinDone = local.checkinDone;
-      if (local.ark && local.ark.mission) appData.ark.mission = local.ark.mission;
-      if (local.ark && local.ark.why) appData.ark.why = local.ark.why;
-    } catch(e) {}
-  }
-  if (!appData.blockStart) { appData.blockStart = Date.now(); }
-  if (!appData.finance) appData.finance = { monthlySalary:40000, savingsRate:50, hysa:3.5, rentalYield:5, propertyPrice:2500000, retireYear:25 };
-  if (!appData.budget) appData.budget = { expenses:[], limits:{ Food:2200, Transport:600, Subscriptions:300, Church:500, Clothing:400, Education:500, Other:500 }, total:5000, locked:false };
-  save();
-}
-
-function save() {
-  localStorage.setItem('kv_data', JSON.stringify(appData));
-}
-
-// ══ SETUP / GITHUB TOKEN ══
-function checkSetup() {
-  const token = localStorage.getItem('kv_github_token');
-  if (!token) {
-    document.getElementById('setup-screen').style.display = 'flex';
-  }
-}
-function saveSetup() {
-  const token = document.getElementById('setup-token').value.trim();
-  if (!token) { alert('Please enter your GitHub token'); return; }
-  localStorage.setItem('kv_github_token', token);
-  document.getElementById('setup-screen').style.display = 'none';
-  setStatus('Token saved locally ✓', 'ok');
-}
-
-// ══ GITHUB SYNC ══
-async function syncToGitHub() {
-  const token = localStorage.getItem('kv_github_token');
-  if (!token) { document.getElementById('setup-screen').style.display = 'flex'; return; }
-  const btn = document.getElementById('sync-btn');
-  btn.disabled = true; btn.textContent = '↑ Saving...';
-  setStatus('', '');
-  try {
-    // Get current file SHA
-    const getRes = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`, {
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    const getJson = await getRes.json();
-    const sha = getJson.sha;
-
-    // Get current HTML and inject data
-    const currentHtml = document.documentElement.outerHTML;
-    const injected = injectDataIntoHtml(currentHtml);
-    const encoded = btoa(unescape(encodeURIComponent(injected)));
-
-    // Commit
-    const putRes = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
-      method: 'PUT',
-      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `Kronvold update ${new Date().toISOString().slice(0,16)}`, content: encoded, sha: sha, branch: GITHUB_BRANCH })
-    });
-    if (putRes.ok) {
-      setStatus('Saved to GitHub ✓ — Netlify redeploys in ~30s', 'ok');
-    } else {
-      const err = await putRes.json();
-      setStatus('Error: ' + (err.message || 'unknown'), 'err');
+  "ark": {
+    "mission": "",
+    "why": ""
+  },
+  "habits": {
+    "2026-05-03": {}
+  },
+  "progress": [],
+  "budget": {
+    "expenses": [],
+    "limits": {
+      "Food": 2200,
+      "Transport": 600,
+      "Subscriptions": 300,
+      "Church / Give": 500,
+      "Clothing": 400,
+      "Education": 500,
+      "Other": 500
+    },
+    "total": 5000,
+    "locked": false
+  },
+  "reflections": [
+    {
+      "date": "2026-05-03",
+      "week": 18,
+      "good": "tesst",
+      "missed": "tesst",
+      "carry": "tesst"
     }
-  } catch(e) {
-    setStatus('Network error. Try again.', 'err');
-  }
-  btn.disabled = false; btn.textContent = '↑ Save to GitHub';
-}
-
-function injectDataIntoHtml(html) {
-  // Use start/end markers to reliably replace the appData block
-  const START = '// ══ STATE ══';
-  const END = '// ══ END STATE ══';
+  ],
+  "finance": {
+    "monthlySalary": 40000,
+    "savingsRate": 50,
+    "hysa": 3.5,
+    "rentalYield": 5,
+    "propertyPrice": 2500000,
+    "retireYear": 25
+  },
+  "blockStart": 1777830162021,
+  "checkinDone": false
+};
+// ══ END STATE ══';
   const newBlock = START + '\nconst appData = ' + JSON.stringify(appData, null, 2) + ';\n' + END;
   const startIdx = html.indexOf(START);
   const endIdx = html.indexOf(END);
@@ -1453,5 +1395,6 @@ renderFinance();
 initFinanceInputs();
 </script>
 <div class="notif-toast" id="notif-toast"></div>
-</body>
-</html>
+
+
+</body></html>
