@@ -708,7 +708,7 @@
       <div class="refl-label">What carries into next week?</div>
       <textarea class="refl-textarea" id="refl-carry" rows="3" placeholder="Focus point, adjustment, intention..."></textarea>
     </div>
-    <button class="refl-save-btn" onclick="saveReflection()">Save reflektion → GitHub</button>
+    <button class="refl-save-btn" onclick="saveReflection()">Save reflection → GitHub</button>
   </div>
 
   <div class="sec-label">Past reflections</div>
@@ -1266,9 +1266,9 @@ function renderReflections() {
     const div = document.createElement('div');
     div.className = 'refl-past';
     div.innerHTML = `<div class="refl-past-date">Uge ${r.week} · ${r.date}</div>
-      ${r.good   ? `<div class="refl-past-section">Hvad gik godt</div><div class="refl-past-text">${r.good}</div>` : ''}
-      ${r.missed ? `<div class="refl-past-section">Hvad blev misset</div><div class="refl-past-text">${r.missed}</div>` : ''}
-      ${r.carry  ? `<div class="refl-past-section">Næste uge</div><div class="refl-past-text">${r.carry}</div>` : ''}`;
+      ${r.good   ? `<div class="refl-past-section">What went well</div><div class="refl-past-text">${r.good}</div>` : ''}
+      ${r.missed ? `<div class="refl-past-section">What was missed</div><div class="refl-past-text">${r.missed}</div>` : ''}
+      ${r.carry  ? `<div class="refl-past-section">Next week</div><div class="refl-past-text">${r.carry}</div>` : ''}`;
     list.appendChild(div);
   });
 }
