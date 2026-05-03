@@ -316,8 +316,8 @@
     <button class="tab-btn" onclick="switchTab('workout',this)">Workout</button>
     <button class="tab-btn" onclick="switchTab('diet',this)">Diet</button>
     <button class="tab-btn" onclick="switchTab('progress',this)">Progress</button>
-    <button class="tab-btn" onclick="switchTab('budget',this)">Budget</button>
-    <button class="tab-btn active" onclick="switchTab('reflection',this)">Reflection</button>
+    <button class="tab-btn active" onclick="switchTab('budget',this)">Budget</button>
+    <button class="tab-btn" onclick="switchTab('reflection',this)">Reflection</button>
     <button class="tab-btn" onclick="switchTab('finance',this)">Finance</button>
   </div>
 </header>
@@ -630,31 +630,31 @@
 
   <div class="sec-label">History</div>
   <div class="panel">
-    <div id="progress-list"><div class="log-empty">No logs yet. Start today.</div></div>
+    <div id="progress-list"><div class="log-entry"><span class="log-entry-date">2026-05-03</span><div class="log-entry-vals"><span class="log-entry-val">68.4kg</span><span class="log-entry-val">20% bf</span><span class="log-entry-val">DL:110</span><span class="log-entry-val">SQ:50</span><span class="log-entry-val">PU:3</span><span class="log-entry-val">BP:40</span></div></div></div>
   </div>
 </main>
 </div>
 
 <!-- ══════════ BUDGET TAB ══════════ -->
-<div class="tab-content" id="tab-budget">
+<div class="tab-content active" id="tab-budget">
 <main>
   <div class="cards">
     <div class="card"><div class="card-label">Spent this month</div><div class="card-value cv-accent" id="budget-spent-total">0 kr</div></div>
-    <div class="card"><div class="card-label">Budget remaining</div><div class="card-value cv-green" id="budget-left">0 kr</div></div>
+    <div class="card"><div class="card-label">Budget remaining</div><div class="card-value cv-green" id="budget-left">6.500 kr</div></div>
   </div>
 
   <div class="panel">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <div class="budget-month" id="budget-month-label"></div>
-      <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="budget-pct-label"></div>
+      <div class="budget-month" id="budget-month-label">May 2026</div>
+      <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="budget-pct-label">0% of 6.500 kr</div>
     </div>
     <div class="budget-total-row">
       <span class="s-label">Monthly budget (DKK)</span>
-      <input class="budget-total-input" id="budget-total-input" type="number" step="100" placeholder="5000" oninput="updateBudgetTotal(this.value)">
-      <button class="lock-btn" id="budget-lock-btn" onclick="toggleBudgetLock()">🔓 Unlock</button>
+      <input class="budget-total-input" id="budget-total-input" type="number" step="100" placeholder="5000" oninput="updateBudgetTotal(this.value)" disabled="">
+      <button class="lock-btn locked" id="budget-lock-btn" onclick="toggleBudgetLock()">🔒 Locked</button>
     </div>
     <div class="budget-bar-wrap"><div class="budget-bar-fill" id="budget-bar" style="width:0%"></div></div>
-    <div id="budget-cats"></div>
+    <div id="budget-cats"><div class="budget-cat"><div class="budget-cat-name">Food</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 2.200 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Transport</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 600 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Subscriptions</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 300 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Church / Give</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Clothing</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 400 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Education</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Other</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div></div>
   </div>
 
   <div class="sec-label">Add expense</div>
@@ -689,7 +689,7 @@
 </div>
 
 <!-- ══════════ REFLECTION TAB ══════════ -->
-<div class="tab-content active" id="tab-reflection">
+<div class="tab-content" id="tab-reflection">
 <main>
   <div class="refl-week" id="refl-week-label">Uge 18 · 2026-05-03</div>
 
@@ -822,7 +822,17 @@ const appData = {
   "habits": {
     "2026-05-03": {}
   },
-  "progress": [],
+  "progress": [
+    {
+      "date": "2026-05-03",
+      "weight": "68.4",
+      "bf": "20",
+      "dl": "110",
+      "sq": "50",
+      "pu": "3",
+      "bp": "40"
+    }
+  ],
   "budget": {
     "expenses": [],
     "limits": {
@@ -833,7 +843,9 @@ const appData = {
       "Clothing": 400,
       "Education": 500,
       "Other": 500
-    }
+    },
+    "total": 6500,
+    "locked": true
   },
   "reflections": [
     {
@@ -1392,7 +1404,7 @@ initBudget();
 renderFinance();
 initFinanceInputs();
 </script>
-<div class="notif-toast show" id="notif-toast">Reflection saved — syncing to GitHub...</div>
+<div class="notif-toast" id="notif-toast">Reflection saved — syncing to GitHub...</div>
 
 
 </body></html>
