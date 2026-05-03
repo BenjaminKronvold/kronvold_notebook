@@ -1,13 +1,13 @@
-bash
+<html lang="da"><head></head><body>bash
 
-cat > /home/claude/index.html << 'ENDOFFILE'
-<!DOCTYPE html>
-<html lang="da">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+cat &gt; /home/claude/index.html &lt;&lt; 'ENDOFFILE'
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kronvold</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -272,16 +272,16 @@ cat > /home/claude/index.html << 'ENDOFFILE'
     .tl-meta  { font-size:11px; color:var(--muted); margin-left:6px; }
     .tl-income{ margin-left:auto; font-size:11px; color:var(--green); font-family:'JetBrains Mono',monospace; }
   </style>
-</head>
-<body>
+
+
 
 <!-- ══ SETUP SCREEN ══ -->
-<div id="setup-screen" style="display:none">
+<div id="setup-screen" style="display: none;">
   <div class="setup-box">
     <div class="setup-title">Kronvold<span>.</span></div>
     <div class="setup-sub">Dit personlige system. Første gang — indtast din GitHub token for at aktivere auto-gem til nettet.</div>
     <div class="setup-label">GitHub Personal Access Token</div>
-    <input class="setup-input" id="setup-token" type="password" placeholder="ghp_xxxxxxxxxxxx" />
+    <input class="setup-input" id="setup-token" type="password" placeholder="ghp_xxxxxxxxxxxx">
     <div class="setup-note">Token gemmes kun lokalt i din browser. Det sendes aldrig til andre end GitHub direkte.</div>
     <button class="setup-btn" onclick="saveSetup()">Aktivér Kronvold</button>
   </div>
@@ -292,24 +292,24 @@ cat > /home/claude/index.html << 'ENDOFFILE'
   <div class="header-top">
     <div class="logo">Kronvold<span>.</span></div>
     <div style="display:flex;gap:8px;align-items:center">
-      <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()">↑ Gem</button>
+      <button class="sync-btn" id="sync-btn" onclick="syncToGitHub()" disabled="">↑ Gemmer...</button>
     </div>
   </div>
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('ark',this)">ARK</button>
+    <button class="tab-btn" onclick="switchTab('ark',this)">ARK</button>
     <button class="tab-btn" onclick="switchTab('habits',this)">Vaner</button>
     <button class="tab-btn" onclick="switchTab('workout',this)">Træning</button>
     <button class="tab-btn" onclick="switchTab('diet',this)">Kost</button>
     <button class="tab-btn" onclick="switchTab('progress',this)">Progress</button>
     <button class="tab-btn" onclick="switchTab('budget',this)">Budget</button>
-    <button class="tab-btn" onclick="switchTab('reflection',this)">Reflektion</button>
+    <button class="tab-btn active" onclick="switchTab('reflection',this)">Reflektion</button>
     <button class="tab-btn" onclick="switchTab('finance',this)">Finans</button>
   </div>
 </header>
 <div id="sync-status" class="sync-status"></div>
 
 <!-- ══════════ ARK TAB ══════════ -->
-<div class="tab-content active" id="tab-ark">
+<div class="tab-content" id="tab-ark">
 <main>
   <div class="ark-hero">
     <div class="ark-title">Mit kald</div>
@@ -355,16 +355,16 @@ cat > /home/claude/index.html << 'ENDOFFILE'
       <div class="streak-label">dages streak</div>
     </div>
     <div style="text-align:right">
-      <div class="habit-date" id="habit-date-label"></div>
+      <div class="habit-date" id="habit-date-label">2026-05-03</div>
       <button class="action-btn" onclick="resetHabitsToday()">Nulstil dag</button>
     </div>
   </div>
 
-  <div class="streak-bar" id="streak-bar"></div>
+  <div class="streak-bar" id="streak-bar"><div class="streak-pip" title="2026-04-27">M</div><div class="streak-pip" title="2026-04-28">T</div><div class="streak-pip" title="2026-04-29">W</div><div class="streak-pip" title="2026-04-30">T</div><div class="streak-pip" title="2026-05-01">F</div><div class="streak-pip" title="2026-05-02">S</div><div class="streak-pip today" title="2026-05-03">S</div></div>
 
   <div class="panel" style="padding:14px">
     <div class="panel-title">Daglige vaner</div>
-    <div id="habits-list"></div>
+    <div id="habits-list"><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">4am opvågning</div><div class="habit-time">04:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Løb til fitness</div><div class="habit-time">04:15</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">5am træning</div><div class="habit-time">05:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Bøn / Bibel</div><div class="habit-time">06:00</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Meal prep / sund kost</div><div class="habit-time">Daglig</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Studie / arbejde</div><div class="habit-time">06:30</div></div><div class="habit-item"><div class="habit-check "></div><div class="habit-name" style="">Sov inden 19:00</div><div class="habit-time">19:00</div></div></div>
   </div>
 </main>
 </div>
@@ -390,7 +390,7 @@ cat > /home/claude/index.html << 'ENDOFFILE'
       <div class="week-lbl">af 4 uger</div>
     </div>
   </div>
-  <div class="week-pips" id="week-pips"></div>
+  <div class="week-pips" id="week-pips"><div class="wpip curr"></div><div class="wpip"></div><div class="wpip"></div><div class="wpip"></div></div>
 
   <div class="tog-row">
     <button class="tog active" onclick="showWDay('mon',this)">Man</button>
@@ -587,27 +587,27 @@ cat > /home/claude/index.html << 'ENDOFFILE'
     <div class="log-form" id="log-form">
       <div class="log-input-wrap">
         <div class="log-label">Vægt (kg)</div>
-        <input class="log-input" id="log-weight" type="number" step="0.1" placeholder="68.7" />
+        <input class="log-input" id="log-weight" type="number" step="0.1" placeholder="68.7">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Fedtprocent (%)</div>
-        <input class="log-input" id="log-bf" type="number" step="0.1" placeholder="20" />
+        <input class="log-input" id="log-bf" type="number" step="0.1" placeholder="20">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Dødløft (kg)</div>
-        <input class="log-input" id="log-dl" type="number" step="1" placeholder="100" />
+        <input class="log-input" id="log-dl" type="number" step="1" placeholder="100">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Squat (kg)</div>
-        <input class="log-input" id="log-sq" type="number" step="1" placeholder="80" />
+        <input class="log-input" id="log-sq" type="number" step="1" placeholder="80">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Pullups (#)</div>
-        <input class="log-input" id="log-pu" type="number" step="1" placeholder="0" />
+        <input class="log-input" id="log-pu" type="number" step="1" placeholder="0">
       </div>
       <div class="log-input-wrap">
         <div class="log-label">Bench press (kg)</div>
-        <input class="log-input" id="log-bp" type="number" step="1" placeholder="60" />
+        <input class="log-input" id="log-bp" type="number" step="1" placeholder="60">
       </div>
       <button class="log-btn" onclick="saveProgressLog()">Gem log</button>
     </div>
@@ -625,16 +625,16 @@ cat > /home/claude/index.html << 'ENDOFFILE'
 <main>
   <div class="cards">
     <div class="card"><div class="card-label">Brugt denne måned</div><div class="card-value cv-accent" id="budget-spent-total">0 kr</div></div>
-    <div class="card"><div class="card-label">Budget tilbage</div><div class="card-value cv-green" id="budget-left">0 kr</div></div>
+    <div class="card"><div class="card-label">Budget tilbage</div><div class="card-value cv-green" id="budget-left">5.000 kr</div></div>
   </div>
 
   <div class="panel">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <div class="budget-month" id="budget-month-label"></div>
-      <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="budget-pct-label"></div>
+      <div class="budget-month" id="budget-month-label">maj 2026</div>
+      <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="budget-pct-label">0% af 5.000 kr</div>
     </div>
     <div class="budget-bar-wrap"><div class="budget-bar-fill" id="budget-bar" style="width:0%"></div></div>
-    <div id="budget-cats"></div>
+    <div id="budget-cats"><div class="budget-cat"><div class="budget-cat-name">Mad</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 2.200 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Transport</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 600 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Abonnementer</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 300 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Kirke / Give</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Tøj</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 400 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Uddannelse</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div><div class="budget-cat"><div class="budget-cat-name">Andet</div><div class="budget-cat-nums"><div class="budget-cat-spent" style="">0 kr</div><div class="budget-cat-limit">/ 500 kr</div></div></div></div>
   </div>
 
   <div class="sec-label">Tilføj udgift</div>
@@ -649,7 +649,7 @@ cat > /home/claude/index.html << 'ENDOFFILE'
         <option>Uddannelse</option>
         <option>Andet</option>
       </select>
-      <input class="budget-num-input" id="exp-amount" type="number" placeholder="kr" />
+      <input class="budget-num-input" id="exp-amount" type="number" placeholder="kr">
       <button class="budget-add-btn" onclick="addExpense()">+ Tilføj</button>
     </div>
     <div id="expense-list"><div class="log-empty">Ingen udgifter denne måned.</div></div>
@@ -669,9 +669,9 @@ cat > /home/claude/index.html << 'ENDOFFILE'
 </div>
 
 <!-- ══════════ REFLECTION TAB ══════════ -->
-<div class="tab-content" id="tab-reflection">
+<div class="tab-content active" id="tab-reflection">
 <main>
-  <div class="refl-week" id="refl-week-label"></div>
+  <div class="refl-week" id="refl-week-label">Uge 18 · 2026-05-03</div>
 
   <div class="panel">
     <div class="refl-field">
@@ -690,7 +690,10 @@ cat > /home/claude/index.html << 'ENDOFFILE'
   </div>
 
   <div class="sec-label">Tidligere reflektioner</div>
-  <div id="reflections-list"><div class="log-empty">Ingen reflektioner endnu.</div></div>
+  <div id="reflections-list"><div class="refl-past"><div class="refl-past-date">Uge 18 · 2026-05-03</div>
+      <div class="refl-past-section">Hvad gik godt</div><div class="refl-past-text">test</div>
+      <div class="refl-past-section">Hvad blev misset</div><div class="refl-past-text">test</div>
+      <div class="refl-past-section">Næste uge</div><div class="refl-past-text">test</div></div></div>
 </main>
 </div>
 
@@ -698,18 +701,18 @@ cat > /home/claude/index.html << 'ENDOFFILE'
 <div class="tab-content" id="tab-finance">
 <main>
   <div class="cards">
-    <div class="card"><div class="card-label">Pension alder</div><div class="card-value cv-accent" id="c-retire-age">—</div></div>
-    <div class="card"><div class="card-label">Opsparing ved pension</div><div class="card-value cv-accent" id="c-savings">—</div></div>
-    <div class="card"><div class="card-label">Ejendomme</div><div class="card-value cv-green" id="c-properties">—</div></div>
-    <div class="card"><div class="card-label">Passiv indkomst/år</div><div class="card-value cv-green" id="c-passive">—</div></div>
+    <div class="card"><div class="card-label">Pension alder</div><div class="card-value cv-accent" id="c-retire-age">45</div></div>
+    <div class="card"><div class="card-label">Opsparing ved pension</div><div class="card-value cv-accent" id="c-savings">1.37M kr</div></div>
+    <div class="card"><div class="card-label">Ejendomme</div><div class="card-value cv-green" id="c-properties">1 stk</div></div>
+    <div class="card"><div class="card-label">Passiv indkomst/år</div><div class="card-value cv-green" id="c-passive">173.1K kr</div></div>
   </div>
 
   <div class="panel">
     <div class="panel-title">Opsparingsbane</div>
-    <div id="chart-bars"></div>
+    <div id="chart-bars"><div class="bar-wrap" title="Alder 21: 93.2K kr"><div class="bar" style="height: 3.5794px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 22: 189.6K kr"><div class="bar" style="height: 7.28408px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 23: 289.3K kr"><div class="bar" style="height: 11.1184px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 24: 392.6K kr"><div class="bar" style="height: 15.087px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 25: 499.5K kr"><div class="bar" style="height: 19.1944px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 26: 610.1K kr"><div class="bar" style="height: 23.4456px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 27: 724.7K kr"><div class="bar" style="height: 27.8456px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 28: 843.2K kr"><div class="bar" style="height: 32.3996px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 29: 965.8K kr"><div class="bar" style="height: 37.113px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 30: 1.09M kr"><div class="bar" style="height: 41.9914px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 31: 1.22M kr"><div class="bar" style="height: 47.0405px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 32: 1.36M kr"><div class="bar" style="height: 52.2663px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 33: 1.50M kr"><div class="bar" style="height: 57.675px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 34: 1.65M kr"><div class="bar" style="height: 63.2731px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 35: 1.80M kr"><div class="bar" style="height: 69.067px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 36: 1.95M kr"><div class="bar" style="height: 75.0638px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 37: 2.11M kr"><div class="bar" style="height: 81.2704px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 38: 2.28M kr"><div class="bar" style="height: 87.6943px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 39: 2.46M kr"><div class="bar" style="height: 94.343px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 40: 171.8K kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 6.59979px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 41: 395.9K kr"><div class="bar" style="height: 15.2135px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 42: 627.9K kr"><div class="bar" style="height: 24.1286px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 43: 868.0K kr"><div class="bar" style="height: 33.3558px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 44: 1.12M kr"><div class="bar" style="height: 42.9059px; background: linear-gradient(to top, rgba(138, 109, 42, 0.733), rgba(138, 109, 42, 0.333));"></div></div><div class="bar-wrap" title="Alder 45: 1.37M kr"><div class="bar" style="height: 52.7903px; background: rgb(201, 168, 76);"></div></div><div class="bar-wrap" title="Alder 46: 1.55M kr"><div class="bar" style="height: 59.4413px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 47: 1.73M kr"><div class="bar" style="height: 66.325px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 48: 1.91M kr"><div class="bar" style="height: 73.4496px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 49: 2.10M kr"><div class="bar" style="height: 80.8237px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 50: 2.30M kr"><div class="bar" style="height: 88.4558px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 51: 2.51M kr"><div class="bar" style="height: 96.355px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 52: 257.8K kr"><div class="bar-icon">🏠</div><div class="bar" style="height: 9.90612px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 53: 516.8K kr"><div class="bar" style="height: 19.8594px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 54: 784.9K kr"><div class="bar" style="height: 30.161px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 55: 1.06M kr"><div class="bar" style="height: 40.8232px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 56: 1.35M kr"><div class="bar" style="height: 51.8586px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 57: 1.65M kr"><div class="bar" style="height: 63.2802px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 58: 1.95M kr"><div class="bar" style="height: 75.1016px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 59: 2.27M kr"><div class="bar" style="height: 87.3367px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div><div class="bar-wrap" title="Alder 60: 2.60M kr"><div class="bar" style="height: 100px; background: linear-gradient(to top, rgba(45, 110, 85, 0.733), rgba(76, 175, 135, 0.4));"></div></div></div>
     <div class="chart-labels">
       <span>Alder 21</span>
-      <span style="color:var(--accent)" id="chart-retire-label">↑ Pension —</span>
+      <span style="color:var(--accent)" id="chart-retire-label">↑ Pension 45</span>
       <span>Alder 60</span>
     </div>
     <div class="chart-legend">
@@ -719,57 +722,57 @@ cat > /home/claude/index.html << 'ENDOFFILE'
     </div>
   </div>
 
-  <div class="timeline-section" id="timeline-section">
+  <div class="timeline-section" id="timeline-section" style="display: block;">
     <div class="panel">
       <div class="panel-title">Ejendomskøb tidslinje</div>
-      <div class="timeline-list" id="timeline-list"></div>
+      <div class="timeline-list" id="timeline-list"><div class="tl-item"><div class="tl-badge">#1</div><div><span class="tl-label">Ejendom #1</span><span class="tl-meta">Alder 40 · År 20</span></div><div class="tl-income">+125.0K kr/år</div></div><div class="tl-item"><div class="tl-badge">#2</div><div><span class="tl-label">Ejendom #2</span><span class="tl-meta">Alder 52 · År 32</span></div><div class="tl-income">+125.0K kr/år</div></div></div>
     </div>
   </div>
 
   <div class="panel">
     <div class="panel-title">Indkomst &amp; Opsparing</div>
     <div class="slider-group">
-      <div class="slider-row"><span class="s-label">Månedlig løn</span><span class="s-value" id="val-monthlySalary"></span></div>
-      <div class="s-sub" id="sub-monthlySalary"></div>
-      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-monthlySalary"></div><input type="range" id="sl-monthlySalary" min="15000" max="200000" step="1000" /></div>
+      <div class="slider-row"><span class="s-label">Månedlig løn</span><span class="s-value" id="val-monthlySalary">15.0K kr/md</span></div>
+      <div class="s-sub" id="sub-monthlySalary">Årlig: 180.0K kr · Opsparet/år: 90.0K kr</div>
+      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-monthlySalary" style="width: 0%;"></div><input type="range" id="sl-monthlySalary" min="15000" max="200000" step="1000"></div>
     </div>
     <div class="slider-group">
-      <div class="slider-row"><span class="s-label">Opsparingsrate</span><span class="s-value" id="val-savingsRate"></span></div>
-      <div class="s-sub" id="sub-savingsRate"></div>
-      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-savingsRate"></div><input type="range" id="sl-savingsRate" min="5" max="90" step="1" /></div>
+      <div class="slider-row"><span class="s-label">Opsparingsrate</span><span class="s-value" id="val-savingsRate">50%</span></div>
+      <div class="s-sub" id="sub-savingsRate">7.5K kr/md til opsparing</div>
+      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-savingsRate" style="width: 52.9412%;"></div><input type="range" id="sl-savingsRate" min="5" max="90" step="1"></div>
     </div>
     <div class="slider-group">
-      <div class="slider-row"><span class="s-label">Afkast (HYSA/obligation)</span><span class="s-value" id="val-hysa"></span></div>
-      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-hysa"></div><input type="range" id="sl-hysa" min="0.5" max="8" step="0.1" /></div>
+      <div class="slider-row"><span class="s-label">Afkast (HYSA/obligation)</span><span class="s-value" id="val-hysa">3.5%</span></div>
+      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-hysa" style="width: 40%;"></div><input type="range" id="sl-hysa" min="0.5" max="8" step="0.1"></div>
     </div>
     <div class="slider-group" style="margin-bottom:0">
-      <div class="slider-row"><span class="s-label">Pension om X år</span><span class="s-value" id="val-retireYear"></span></div>
-      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-retireYear"></div><input type="range" id="sl-retireYear" min="5" max="35" step="1" /></div>
+      <div class="slider-row"><span class="s-label">Pension om X år</span><span class="s-value" id="val-retireYear">År 25 (Alder 45)</span></div>
+      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-retireYear" style="width: 66.6667%;"></div><input type="range" id="sl-retireYear" min="5" max="35" step="1"></div>
     </div>
   </div>
 
   <div class="panel">
     <div class="panel-title">Ejendomsindstillinger</div>
-    <div style="font-size:11px;color:var(--green);margin-bottom:12px" id="property-hint"></div>
+    <div style="font-size:11px;color:var(--green);margin-bottom:12px" id="property-hint">Auto-køber når opsparing rammer 2.50M kr</div>
     <div class="slider-group">
-      <div class="slider-row"><span class="s-label">Ejendomspris</span><span class="s-value" id="val-propertyPrice"></span></div>
-      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-propertyPrice"></div><input type="range" id="sl-propertyPrice" min="500000" max="10000000" step="100000" /></div>
+      <div class="slider-row"><span class="s-label">Ejendomspris</span><span class="s-value" id="val-propertyPrice">2.50M kr</span></div>
+      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-propertyPrice" style="width: 21.0526%;"></div><input type="range" id="sl-propertyPrice" min="500000" max="10000000" step="100000"></div>
     </div>
     <div class="slider-group" style="margin-bottom:0">
-      <div class="slider-row"><span class="s-label">Lejeafkast (efter udgifter)</span><span class="s-value" id="val-rentalYield"></span></div>
-      <div class="s-sub" id="sub-rentalYield"></div>
-      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-rentalYield"></div><input type="range" id="sl-rentalYield" min="1" max="12" step="0.5" /></div>
+      <div class="slider-row"><span class="s-label">Lejeafkast (efter udgifter)</span><span class="s-value" id="val-rentalYield">5.0%</span></div>
+      <div class="s-sub" id="sub-rentalYield">Hver ejendom giver 125.0K kr/år</div>
+      <div class="slider-track"><div class="track-bg"></div><div class="track-fill" id="fill-rentalYield" style="width: 36.3636%;"></div><input type="range" id="sl-rentalYield" min="1" max="12" step="0.5"></div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:0">
-    <div class="panel-title" id="breakdown-title">Ved pension</div>
-    <div class="breakdown-row"><span class="bk-key">Kontantopsparing</span><span class="bk-val" id="br-savings"></span></div>
-    <div class="breakdown-row"><span class="bk-key">Ejendomme ejet</span><span class="bk-val" id="br-properties"></span></div>
-    <div class="breakdown-row"><span class="bk-key">Lejeindtægt</span><span class="bk-val cv-green" id="br-rental"></span></div>
-    <div class="breakdown-row"><span class="bk-key">HYSA rente</span><span class="bk-val cv-accent" id="br-hysa"></span></div>
-    <div class="breakdown-row"><span class="bk-key">Total passiv/år</span><span class="bk-val cv-green bk-bold" id="br-total"></span></div>
-    <div class="breakdown-row" style="border-bottom:none"><span class="bk-key">Månedlig passiv</span><span class="bk-val cv-green bk-bold" id="br-monthly"></span></div>
+    <div class="panel-title" id="breakdown-title">Ved pension — Alder 45</div>
+    <div class="breakdown-row"><span class="bk-key">Kontantopsparing</span><span class="bk-val" id="br-savings">1.37M kr</span></div>
+    <div class="breakdown-row"><span class="bk-key">Ejendomme ejet</span><span class="bk-val" id="br-properties">1 × 2.50M kr</span></div>
+    <div class="breakdown-row"><span class="bk-key">Lejeindtægt</span><span class="bk-val cv-green" id="br-rental">125.0K kr/år</span></div>
+    <div class="breakdown-row"><span class="bk-key">HYSA rente</span><span class="bk-val cv-accent" id="br-hysa">48.1K kr/år</span></div>
+    <div class="breakdown-row"><span class="bk-key">Total passiv/år</span><span class="bk-val cv-green bk-bold" id="br-total">173.1K kr</span></div>
+    <div class="breakdown-row" style="border-bottom:none"><span class="bk-key">Månedlig passiv</span><span class="bk-val cv-green bk-bold" id="br-monthly">14.4K kr/md</span></div>
   </div>
 </main>
 </div>
@@ -798,14 +801,45 @@ const GITHUB_BRANCH = 'main';
 
 // ══ STATE ══
 const appData = {
-  ark: { mission: '', why: '' },
-  habits: {},
-  progress: [],
-  budget: { expenses: [], limits: { 'Mad':2200,'Transport':600,'Abonnementer':300,'Kirke / Give':500,'Tøj':400,'Uddannelse':500,'Andet':500 } },
-  reflections: [],
-  finance: { monthlySalary:40000, savingsRate:50, hysa:3.5, rentalYield:5, propertyPrice:2500000, retireYear:25 },
-  blockStart: null,
-  checkinDone: false
+  "ark": {
+    "mission": "Støt familien og bliv finansielt fri gennem hårdt arbejde i finanssektoren og netværk gennem kirken. Jeg kan ikke stole på en brudt verden — kun på Gud. Dette er min vej: at frigøre min slægts lænker.",
+    "why": "Min far er blevet doven og berettiget. Min mor bærer for meget. Verden fortalte mig at jeg aldrig ville klare det — men jeg vil ikke kun klare det, jeg vil løfte dem der troede på mig med mig op. Også min far."
+  },
+  "habits": {
+    "2026-05-03": {}
+  },
+  "progress": [],
+  "budget": {
+    "expenses": [],
+    "limits": {
+      "Mad": 2200,
+      "Transport": 600,
+      "Abonnementer": 300,
+      "Kirke / Give": 500,
+      "Tøj": 400,
+      "Uddannelse": 500,
+      "Andet": 500
+    }
+  },
+  "reflections": [
+    {
+      "date": "2026-05-03",
+      "week": 18,
+      "good": "test",
+      "missed": "test",
+      "carry": "test"
+    }
+  ],
+  "finance": {
+    "monthlySalary": 15000,
+    "savingsRate": 50,
+    "hysa": 3.5,
+    "rentalYield": 5,
+    "propertyPrice": 2500000,
+    "retireYear": 25
+  },
+  "blockStart": 1777810346186,
+  "checkinDone": false
 };
 
 function load() {
@@ -1354,10 +1388,10 @@ renderReflections();
 initBudget();
 renderFinance();
 </script>
-</body>
-</html>
+
+
 ENDOFFILE
-echo "Done: $(wc -l < /home/claude/index.html) lines"
+echo "Done: $(wc -l &lt; /home/claude/index.html) lines"
 Output
 
-Done: 1355 lines
+Done: 1355 lines</body></html>
