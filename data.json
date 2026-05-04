@@ -38,6 +38,13 @@
     {
       "date": "2026-05-04",
       "week": 19,
+      "good": "Kajkage",
+      "missed": "Kajkage",
+      "carry": "Kajkage"
+    },
+    {
+      "date": "2026-05-04",
+      "week": 19,
       "good": "t",
       "missed": "t",
       "carry": "t"
