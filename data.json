@@ -22,7 +22,7 @@
   "progress": [],
   "budget": {
     "total": 5000,
-    "locked": false,
+    "locked": true,
     "limits": {
       "Food": 2200,
       "Transport": 600,
