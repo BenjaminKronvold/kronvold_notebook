@@ -725,24 +725,31 @@ async function ghFetch(path, opts={}) {
   const token = getToken();
   return fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/${path}`, {
     ...opts,
-    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Cache-Control': 'no-cache', ...(opts.headers||{}) }
+    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', ...(opts.headers||{}) }
   });
 }
 
 async function loadFromGitHub() {
   try {
-    const res = await ghFetch(`contents/${DATA_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`);
-    if (res.status === 404) {
-      // data.json doesn't exist yet — create it on GitHub with defaults
-      await createDataFile();
-      return true;
-    }
-    if (!res.ok) return false;
+    const token = getToken();
+    if (!token) { setStatus('No token found — please re-enter','err'); return false; }
+    const url = `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${DATA_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`;
+    const res = await fetch(url, {
+      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
     const json = await res.json();
-    const content = JSON.parse(atob(json.content.replace(/\n/g,'')));
+    if (res.status === 404) { await createDataFile(); return true; }
+    if (res.status === 401) { setStatus('Token invalid or expired — re-enter in setup','err'); localStorage.removeItem('kv_token'); document.getElementById('setup').style.display='flex'; return false; }
+    if (!res.ok) { setStatus('GitHub error ' + res.status + ': ' + (json.message||'unknown'), 'err'); return false; }
+    if (!json.content) { setStatus('No content in response','err'); return false; }
+    const raw = json.content.replace(/\s/g,'');
+    const content = JSON.parse(decodeURIComponent(escape(atob(raw))));
     D = deepMerge(D, content);
     return true;
-  } catch(e) { return false; }
+  } catch(e) {
+    setStatus('Load error: ' + e.message, 'err');
+    return false;
+  }
 }
 
 async function createDataFile() {
@@ -1229,7 +1236,12 @@ async function init() {
   setStatus('Loading...','');
   const loaded = await loadFromGitHub();
   setStatus('','');
-  if (!loaded) setStatus('Could not load data from GitHub','err');
+  // Always render with whatever data we have — defaults if load failed
+  renderAll();
+  if (!loaded) setStatus('Working offline — save to sync','err');
+}
+
+function renderAll() {
   renderArk();
   renderHabits();
   initWorkout();
