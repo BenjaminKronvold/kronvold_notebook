@@ -11,7 +11,12 @@
     ]
   },
   "habits": {
-    "2026-05-04": {}
+    "2026-05-04": {
+      "run": true,
+      "train": true,
+      "food": true,
+      "study": true
+    }
   },
   "workout": {
     "blockStart": 1777896597036,
