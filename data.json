@@ -1,0 +1,44 @@
+{
+  "ark": {
+    "mission": "Support the family and achieve financial freedom through hard work in the finance sector and networking through church. I cannot depend on a broken world — only trust in God. This is my path: to free my bloodline.",
+    "why": "My dad has become entitled, old and lazy. My mom is suffering because of this. The world told me I would never make it — but not only will I make it, I will pull those who believed in me up with me. Even my dad.",
+    "priorities": [
+      "Faith & God",
+      "Family — present, not consumed",
+      "Finance — work, studies, network",
+      "Body — 4am routine, training, diet",
+      "Everything else does not exist"
+    ]
+  },
+  "habits": {},
+  "workout": {
+    "blockStart": null,
+    "checkinDone": false,
+    "phase": "Phase 1",
+    "name": "Strength & Foundation"
+  },
+  "progress": [],
+  "budget": {
+    "total": 5000,
+    "locked": false,
+    "limits": {
+      "Food": 2200,
+      "Transport": 600,
+      "Subscriptions": 300,
+      "Church": 500,
+      "Clothing": 400,
+      "Education": 500,
+      "Other": 500
+    },
+    "expenses": []
+  },
+  "reflections": [],
+  "finance": {
+    "monthlySalary": 40000,
+    "savingsRate": 50,
+    "annualReturn": 3.5,
+    "retireInYears": 25,
+    "propertyPrice": 2500000,
+    "rentalYield": 5
+  }
+}
