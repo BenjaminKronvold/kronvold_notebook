@@ -10,9 +10,11 @@
       "Everything else does not exist"
     ]
   },
-  "habits": {},
+  "habits": {
+    "2026-05-04": {}
+  },
   "workout": {
-    "blockStart": null,
+    "blockStart": 1777896597036,
     "checkinDone": false,
     "phase": "Phase 1",
     "name": "Strength & Foundation"
@@ -32,7 +34,15 @@
     },
     "expenses": []
   },
-  "reflections": [],
+  "reflections": [
+    {
+      "date": "2026-05-04",
+      "week": 19,
+      "good": "t",
+      "missed": "t",
+      "carry": "t"
+    }
+  ],
   "finance": {
     "monthlySalary": 40000,
     "savingsRate": 50,
